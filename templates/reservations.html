@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}" />
+
+<section id="contact" class="section-padding my-2">
+    <div class="container">
+      {% if messages %}
+    <div class="col-md-12">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+        <div class="row">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <!-- <img src="static/img/success.jpg" class="d-block w-100" alt="..."> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col-md-12 text-center">
+                <h1 class="header-h">Book Your Table</h1>
+                <p class="header-p text-light">
+                    Welcome to our Biryani haven — a place where passion for great food meets time-honored recipes.
+                    Our restaurant is known for crafting rich, aromatic, and flavorful biryanis that celebrate the heritage of Indian cuisine. 
+                    Whether you're craving a hearty Mutton Biryani, a classic Chicken Biryani, or a royal Veg Biryani, we've got something to satisfy every appetite. 
+                    We believe in quality, authenticity, and creating an unforgettable dining experience for our guests. Come hungry, leave happy!
+                </p>
+            </div>
+        </div>
+
+        <div class="row msg-row">
+            <div class="col-md-4 col-sm-4 mr-15">
+                <div class="media-2">
+                    <div class="media-left">
+                        <div class="contact-phone bg-1 text-center"></div>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="dark-blue regular text-light">
+                            <i class="fas fa-phone fa-1x text-warning"></i> Phone Numbers
+                        </h4>
+                        <p class="light-blue regular alt-p">
+                            +91 9828307614
+                            <span class="contacts-sp">Phone Booking</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="media-2">
+                    <div class="media-left">
+                        <div class="contact-email bg-14 text-center"></div>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="dark-blue regular text-light">
+                            <i class="fas fa-clock fa-1x text-warning"></i> Opening Hours
+                        </h4>
+                        <p class="light-blue regular alt-p">
+                            Monday to Friday 09.00 - 12.00
+                        </p>
+                        <p class="light-blue regular alt-p">
+                            Friday to Sunday 08:00 - 03.00
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-sm-8">
+                <form action="{% url 'reservations' %}" method="POST" role="form" class="contactForm">
+                    {% csrf_token %}
+                    
+                    <div class="col-md-6 col-sm-6 contact-form">
+                        <div class="form-group label-floating is-empty">
+                            <input
+                                type="text"
+                                name="name"
+                                class="form-control"
+                                id="name"
+                                placeholder="Your Name"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <input
+                                type="date"
+                                class="form-control label-floating is-empty"
+                                name="date"
+                                id="date"
+                                placeholder="Date"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 contact-form pad-form">
+                        <div class="form-group">
+                            <input
+                                type="email"
+                                class="form-control label-floating is-empty"
+                                name="email"
+                                id="email"
+                                placeholder="Your Email"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 contact-form">
+                        <div class="form-group">
+                            <input
+                                type="time"
+                                class="form-control label-floating is-empty"
+                                name="time"
+                                id="time"
+                                placeholder="Time"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 contact-form">
+                        <div class="form-group">
+                            <input
+                                type="text"
+                                class="form-control label-floating is-empty"
+                                name="phone"
+                                id="phone"
+                                placeholder="Phone"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 contact-form">
+                        <div class="form-group">
+                            <input
+                                type="number"
+                                class="form-control label-floating is-empty"
+                                name="people"
+                                id="people"
+                                placeholder="No. of People"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 contact-form">
+                        <div class="form-group label-floating is-empty">
+                            <textarea
+                                class="form-control"
+                                name="message"
+                                rows="5"
+                                placeholder="Message"
+                                required
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 btnpad">
+                        <div class="contacts-btn-pad">
+                            <button type="submit" class="contacts-btn">Book Table</button>
+                        </div>
+                    </div>
+                    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endfor %}
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
