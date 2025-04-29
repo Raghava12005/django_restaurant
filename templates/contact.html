@@ -14,8 +14,17 @@
 
 
 <section id="contact">
+
+
   
   <h1 class="section-header">CONTACT</h1>
+  {% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" style="margin: 10px 0; color: green;">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" 
       href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" 

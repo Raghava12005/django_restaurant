@@ -2,6 +2,9 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from myapp.models import table
+from myapp.models import table, Contact 
+
 
 # Home Page View
 def index(request):
@@ -136,3 +139,16 @@ def handlelogout(request):
     logout(request)
     messages.success(request, "Successfully logged out")
     return redirect('home')
+def contact(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        subject = request.POST.get('subject')
+        message = request.POST.get('message')
+        
+        contact = Contact(name=name, email=email, subject=subject, message=message)
+        contact.save()
+
+        messages.success(request, "Your message has been sent successfully!")
+
+    return render(request, 'contact.html')

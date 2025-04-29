@@ -1,29 +1,29 @@
 {% extends 'base.html' %}
-{% block body %}
 {% load static %}
+{% block body %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}" />
 
 <section id="contact" class="section-padding my-2">
     <div class="container">
-      {% if messages %}
-    <div class="col-md-12">
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+        {% if messages %}
+            <div class="col-md-12">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-    </div>
-{% endif %}
+        {% endif %}
 
         <div class="row">
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <!-- <img src="static/img/success.jpg" class="d-block w-100" alt="..."> -->
+                
                     </div>
                 </div>
             </div>
@@ -81,88 +81,53 @@
                     
                     <div class="col-md-6 col-sm-6 contact-form">
                         <div class="form-group label-floating is-empty">
-                            <input
-                                type="text"
-                                name="name"
-                                class="form-control"
-                                id="name"
-                                placeholder="Your Name"
-                                required
-                            />
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required />
                         </div>
                         <div class="form-group">
-                            <input
-                                type="date"
-                                class="form-control label-floating is-empty"
-                                name="date"
-                                id="date"
-                                placeholder="Date"
-                                required
-                            />
+                            <input type="date" class="form-control label-floating is-empty" name="date" id="date" placeholder="Date" required />
                         </div>
                     </div>
 
                     <div class="col-md-6 col-sm-6 contact-form pad-form">
                         <div class="form-group">
-                            <input
-                                type="email"
-                                class="form-control label-floating is-empty"
-                                name="email"
-                                id="email"
-                                placeholder="Your Email"
-                                required
-                            />
+                            <input type="email" class="form-control label-floating is-empty" name="email" id="email" placeholder="Your Email" required />
                         </div>
                     </div>
 
                     <div class="col-md-6 col-sm-6 contact-form">
                         <div class="form-group">
-                            <input
-                                type="time"
-                                class="form-control label-floating is-empty"
-                                name="time"
-                                id="time"
-                                placeholder="Time"
-                                required
-                            />
+                            <input type="time" class="form-control label-floating is-empty" name="time" id="time" placeholder="Time" required />
                         </div>
                     </div>
 
                     <div class="col-md-6 col-sm-6 contact-form">
                         <div class="form-group">
-                            <input
-                                type="text"
-                                class="form-control label-floating is-empty"
-                                name="phone"
-                                id="phone"
-                                placeholder="Phone"
-                                required
-                            />
+                            <input type="text" class="form-control label-floating is-empty" name="phone" id="phone" placeholder="Phone" required />
                         </div>
                     </div>
 
                     <div class="col-md-6 col-sm-6 contact-form">
                         <div class="form-group">
-                            <input
-                                type="number"
-                                class="form-control label-floating is-empty"
-                                name="people"
-                                id="people"
-                                placeholder="No. of People"
-                                required
-                            />
+                            <input type="number" class="form-control label-floating is-empty" name="people" id="people" placeholder="No. of People" required />
+                        </div>
+                    </div>
+
+                
+                    <div class="col-md-6 col-sm-6 contact-form">
+                        <div class="form-group">
+                            <select name="purpose" class="form-control" required>
+                                <option value="" selected disabled>-- Select Purpose --</option>
+                                <option value="1">Date</option>
+                                <option value="2">Birthday</option>
+                                <option value="3">Anniversary</option>
+                                <option value="4">Party</option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="col-md-12 contact-form">
                         <div class="form-group label-floating is-empty">
-                            <textarea
-                                class="form-control"
-                                name="message"
-                                rows="5"
-                                placeholder="Message"
-                                required
-                            ></textarea>
+                            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
                         </div>
                     </div>
 
@@ -171,14 +136,15 @@
                             <button type="submit" class="contacts-btn">Book Table</button>
                         </div>
                     </div>
+
                     {% for message in messages %}
-    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-        <strong>Message:</strong> {{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-{% endfor %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                            <strong>Message:</strong> {{ message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% endfor %}
 
                 </form>
             </div>
