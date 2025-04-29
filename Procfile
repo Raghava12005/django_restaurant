@@ -1,1 +1,1 @@
-web: gunicorn restaurant-master.wsgi:application
+web: gunicorn hello.wsgi:application
