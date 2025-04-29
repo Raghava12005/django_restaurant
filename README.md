@@ -1,9 +1,9 @@
-# Food house restaurant Management System
+#  restaurant Management System
 A restaurant management system using django: http://anujmaddy.pythonanywhere.com/
 
 Here is a real life application build with django, bootstrap-4
 
-This application will manage Restaurant name <b>Food House </b> things automatically.
+This application will manage Restaurant name <b> </b> things automatically.
 
 ## Features
 ```
@@ -39,4 +39,4 @@ Cheers!
 
 
 
-## If you found this usefull don't forget to hit a star :) 
+## If you found this usefull don't forget to hit a star :
