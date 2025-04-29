@@ -29,7 +29,9 @@ SECRET_KEY = 'x!jvx^n=sen@n$w73d@#(xs5lb-=8@x!z#04ze7+u+zfz(@d&1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-restaurant-1.onrender.com',
+    'localhost',                         
+    '127.0.0.1'  ]
 
 # Application definition
 
